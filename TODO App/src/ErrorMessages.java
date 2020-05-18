@@ -8,6 +8,7 @@ public class ErrorMessages {
 
 	// display error messages if user violates any rules
 	public void displayErrorMessages(Text text) {
+
 		// open a new stage
 		Stage errorStage = new Stage();
 		errorStage.setTitle("ERROR!");

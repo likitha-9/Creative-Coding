@@ -14,8 +14,19 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+/**
+ *
+ * @author likitha-9
+ *
+ *         Main Class
+ *
+ */
+
 public class Main extends Application {
 
+	/* (non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage mainStage) throws IOException {
 		// Create VBox (MAIN)
@@ -40,13 +51,12 @@ public class Main extends Application {
 		// Add all children to the main VBox.
 		vbox.getChildren().addAll(hbox_writing, hbox_choices);
 
-
 		Parent root = FXMLLoader.load(getClass().getResource("FXML.fxml"));
 
 		Scene scene = new Scene(root);
 
 		// Create scene, add it to stage, and show the stage.
-		//Scene scene = new Scene(vbox, 400, 400);
+		// Scene scene = new Scene(vbox, 400, 400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		mainStage.setScene(scene);
 		mainStage.show();

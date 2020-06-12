@@ -1,0 +1,30 @@
+	<items>
+					<FXCollections fx:factory="observableArrayList">
+						<String fx:value="Atbash">
+						<String fx:value="ROT13">
+						<String fx:value="Caesar">
+						<String fx:value="Affine">
+						<String fx:value="Rail-Fence">
+						<String fx:value="Baconian">
+						<String fx:value="Polybius Square">
+						<String fx:value="Simple Substitution">
+						<String fx:value="Codes and Nomenclators">
+						<String fx:value="Columnar Transposition">
+						<String fx:value="Autokey">
+						<String fx:value="Beaufort">
+						<String fx:value="Porta">
+						<String fx:value="Running Key">
+						<String fx:value="Vigenère and Gronsfeld">
+						<String fx:value="Homophonic Substitution">
+						<String fx:value="Four-Square">
+						<String fx:value="Hill">
+						<String fx:value="Playfair">
+						<String fx:value="ADFGVX">
+						<String fx:value="ADFGX">
+						<String fx:value="Bifid">
+						<String fx:value="Straddle Checkerboard">
+						<String fx:value="Trifid">
+						<String fx:value="Base64">
+						<String fx:value="Fractionated Morse">
+					</FXCollections>
+				</items>

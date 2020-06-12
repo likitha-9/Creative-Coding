@@ -23,9 +23,9 @@ public class Main extends Application {
 		TextField enterText = new TextField("Enter text.");
 		hbox_writing.getChildren().addAll(enterLabel, enterText);
 
-		// Create a choice box for the ciphers.
+		// Create a choice box for the s.
 		HBox hbox_choices=new HBox(20);
-		Label choiceLabel = new Label("Select a cipher:\t");
+		Label choiceLabel = new Label("Select a :\t");
 		ChoiceBox choices = new ChoiceBox<String>(FXCollections.observableArrayList(
 				"Atbash",
 				"ROT13",
@@ -33,14 +33,35 @@ public class Main extends Application {
 				"Affine",
 				"Rail-Fence",
 				"Baconian",
-				"Polybius Square"
+				"Polybius Square",
+				"Simple Substitution",
+				"Codes and Nomenclators",
+				"Columnar Transposition",
+				"Autokey",
+				"Beaufort",
+				"Porta",
+				"Running Key",
+				"Vigenère and Gronsfeld",
+				"Homophonic Substitution",
+				"Four-Square",
+				"Hill",
+				"Playfair",
+				"ADFGVX",
+				"ADFGX",
+				"Bifid",
+				"Straddle Checkerboard",
+				"Trifid",
+				"Base64",
+				"Fractionated Morse"
 				));
 		hbox_choices.getChildren().addAll(choiceLabel,choices);
 
 		// Add all children to the main VBox.
 		vbox.getChildren().addAll(hbox_writing, hbox_choices);
 
-		// Create scene and add it to stage.
+		//
+
+		// Create scene, add it to stage, and show the stage.
 		Scene scene = new Scene(vbox, 400, 400);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 		mainStage.setScene(scene);

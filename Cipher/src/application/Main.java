@@ -23,9 +23,9 @@ public class Main extends Application {
 		TextField enterText = new TextField("Enter text.");
 		hbox_writing.getChildren().addAll(enterLabel, enterText);
 
-		// Create a choice box for the s.
+		// Create a choice box for the ciphers.
 		HBox hbox_choices=new HBox(20);
-		Label choiceLabel = new Label("Select a :\t");
+		Label choiceLabel = new Label("Select a cipher:\t");
 		ChoiceBox choices = new ChoiceBox<String>(FXCollections.observableArrayList(
 				"Atbash",
 				"ROT13",

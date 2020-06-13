@@ -30,11 +30,9 @@ public class CipherController implements Initializable {
 			"Straddle Checkerboard", "Trifid", "Base64", "Fractionated Morse");
 	public ComboBox<String> combo;
 	public TextArea area;
-
-	public TextField a; // a and b were used for Affine Cipher
+	public TextField a;
 	public TextField b;
 	public Button submit;
-
 	public Label message;
 
 	@Override
@@ -69,15 +67,21 @@ public class CipherController implements Initializable {
 		if (combo.getValue() == "Affine") {
 			a.setDisable(false);
 			b.setDisable(false);
+
+			promptText("Value of a", "Value of b");
 			writeMessage("The algorithm for Affine Cipher is: c=(ap+b)(mod 26). "
 					+ "p is the number representing a letter. Values of a and b MUST be relatively prime to 26.");
-		} else {
-			a.setDisable(true);
-			b.setDisable(true);
 		}
 
 		// Rail-Fence Cipher
+		if (combo.getValue() == "Rail-Fence") {
+			a.setDisable(false);
+			b.setDisable(true);
 
+			promptText("Enter the value of key", "");
+			writeMessage("Key = # of rails. " + "E.g. key=3. Plaintext=\"defense\"\n" + "d . . . n . .\n"
+					+ ". e . e . s .\n" + ". . f . . . e\n");
+		}
 	}
 
 	public void submitActions(ActionEvent event) {
@@ -124,12 +128,29 @@ public class CipherController implements Initializable {
 			}
 
 			// Rail-Fence Cipher
+			if (combo.getValue() == "Rail-Fence") {
+				try {
+					System.out.println();
+					AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.textProperty().get()));
+					//AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.textProperty().get()));
+
+				} catch (Exception E) {
+					System.out.println(E);
+					writeMessage("Key has to be a valid integer!");
+				}
+			}
+
 		});
 
 	}
 
 	public void writeMessage(String str) {
 		message.setText(str); // edit the Label to show appropriate messages
+	}
+
+	public void promptText(String str_a, String str_b) {
+		a.setPromptText(str_a);
+		b.setPromptText(str_b);
 	}
 
 }

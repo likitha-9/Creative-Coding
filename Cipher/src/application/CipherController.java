@@ -49,18 +49,23 @@ public class CipherController implements Initializable {
 	@FXML
 	public void getCipherMethod(ActionEvent event) {
 
-		// Enable/disable TextFields based on ComboBox selections.
+		/** Enable/disable TextFields based on ComboBox selections. */
+
+		// ATBASH CIPHER
 		if (combo.getValue() == "Atbash")
 			writeMessage("A monoalphabetic substitution that takes the alphabet and maps to its reverse. "
 					+ "Ex: A->Z, B->Y, C->X, and so on.\n");
 
+		// ROT13 CIPHER
 		if (combo.getValue() == "ROT13")
 			writeMessage("A substitution cipher where letters are offset by 13. Ex: A->N, B->O, etc.");
 
+		// CAESAR CIPHER
 		if (combo.getValue() == "Caesar")
 			writeMessage("A substitution cipher where letters are shifted a number of places. "
 					+ "Ex: if offset=1, A->B, B->C, etc.");
 
+		// AFFINE CIPHER
 		if (combo.getValue() == "Affine") {
 			a.setDisable(false);
 			b.setDisable(false);
@@ -71,21 +76,23 @@ public class CipherController implements Initializable {
 			b.setDisable(true);
 		}
 
-		// Check for actions on Submit.
+		// RAIL-FENCE CIPHER
+
+		/** Check for actions on Submit.*/
 		submit.setOnMouseClicked(e -> {
-			/** ATBASH CIPHER */
+			// ATBASH CIPHER
 			if (combo.getValue() == "Atbash")
 				AllCipherMethods.atbash(area.getText());
 
-			/** ROT13 CIPHER */
+			// ROT13 CIPHER
 			if (combo.getValue() == "ROT13")
 				AllCipherMethods.rot13(area.getText());
 
-			/** CAESAR CIPHER */
+			// CAESAR CIPHER
 			if (combo.getValue() == "Caesar")
 				AllCipherMethods.caesar(area.getText());
 
-			/** AFFINE CIPHER */
+			// AFFINE CIPHER
 			if (combo.getValue() == "Affine") {
 				try {
 					// values of a, b must be apt (they should be integers and in range from 1-26)
@@ -112,6 +119,8 @@ public class CipherController implements Initializable {
 				}
 
 			}
+
+			// RAIL-FENCE CIPHER
 		});
 
 	}

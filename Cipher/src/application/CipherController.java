@@ -42,6 +42,9 @@ public class CipherController implements Initializable {
 		if(combo.getValue()=="ROT13")
 			AllCipherMethods.rot13(area.getText());
 
+		if(combo.getValue()=="Caesar")
+			AllCipherMethods.caesar(area.getText());
+
 	}
 
 }

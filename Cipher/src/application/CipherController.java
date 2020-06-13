@@ -65,7 +65,7 @@ public class CipherController implements Initializable {
 			a.setDisable(false);
 			b.setDisable(false);
 			writeMessage("The algorithm for Affine Cipher is: c=(ap+b)(mod 26). "
-					+ "p is the number representing a letter. Values of a and b MUST be prime to each other.");
+					+ "p is the number representing a letter. Values of a and b MUST be relatively prime to 26.");
 		} else {
 			a.setDisable(true);
 			b.setDisable(true);
@@ -84,17 +84,20 @@ public class CipherController implements Initializable {
 
 			if (combo.getValue() == "Affine") {
 				try {
-					AllCipherMethods.affine(area.getText(), Integer.parseInt(a.textProperty().get()),
-							Integer.parseInt(b.textProperty().get()));
-
 					// values of a, b must be apt (they should be integers and in range from 1-26)
 					int value_a = Integer.parseInt(a.textProperty().get()),
 							value_b = Integer.parseInt(b.textProperty().get());
 					if (value_a < 1 || value_a > 26 || value_b < 1 || value_b > 26)
 						throw new Exception();
+
+					// checking whether a and b are relatively prime to 26
+					AllCipherMethods.affine(area.getText(), Integer.parseInt(a.textProperty().get()),
+							Integer.parseInt(b.textProperty().get()));
+
 				} catch (Exception E) {
 					writeMessage("a and b must be valid integers!\nThis condition MUST be true: 1 <= a,b <= 26.");
 				}
+
 			}
 		});
 

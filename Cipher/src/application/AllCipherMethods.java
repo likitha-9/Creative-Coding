@@ -126,10 +126,20 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
-	/** */
+	/**
+	 * Affine Cipher - a special case of the more general monoalphabetic
+	 * substitution cipher. The 'key' for the Affine cipher consists of 2 numbers:
+	 * a, b.
+	 *
+	 * a, b - MUST be relatively prime to m (# of alphabets - 26) p - number
+	 * representing letter
+	 *
+	 * Ciphertext letter c = ap+b (mod m)
+	 */
 	static public void affine(String str, int a, int b) {
 		if (a < 1 || a > 26 || b < 1 || b > 26)
-			;//CipherController.writeMessage("This condition is violated: 1<= a,b <= 26.\nTry again!");
+			;// CipherController.writeMessage("This condition is violated: 1<= a,b <=
+		// 26.\nTry again!");
 	}
 
 	static public void railFence(String str) {

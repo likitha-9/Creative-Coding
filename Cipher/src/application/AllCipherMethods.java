@@ -22,9 +22,7 @@ public class AllCipherMethods {
 			if (!Character.isLetter(str.charAt(i))) {
 				cipher.append(str.charAt(i));
 				continue;
-			}
-			// If str.charAt(i)==alphabet, modify it.*/
-			else {
+			} else {
 				int ascii = str.charAt(i); // convert current char to ascii value
 
 				char coded_char;
@@ -54,7 +52,36 @@ public class AllCipherMethods {
 		StringBuilder cipher = new StringBuilder();
 		for (int i = 0; i < str.length(); i++) {
 
+			// Ignore anything that's not a letter.
+			if (!Character.isLetter(str.charAt(i))) {
+				cipher.append(str.charAt(i));
+				continue;
+			} else {
+				boolean flag = false; // to keep track of whether letter is lower/upper (avoid redundancy)
+				char ch;
+
+				// convert non-uppercase letters to upper and then re-convert at the end
+				if (!Character.isUpperCase(str.charAt(i))) {
+					flag = true;
+					ch = Character.toUpperCase(str.charAt(i));
+				} else
+					ch = str.charAt(i);
+
+				int numeric = ch, new_ascii;
+				int calc=(numeric+13)%90;
+				if (calc < 65)	//take care of rotating as well
+					new_ascii=64+calc;
+				else
+					new_ascii=calc;
+
+				char coded_char=(char) new_ascii;
+				if(flag)	//char had been lowercase before; so convert it back
+					coded_char=Character.toLowerCase(coded_char);
+
+				cipher.append(coded_char);
+			}
 		}
+		System.out.println(cipher);
 	}
 
 	static public void caesar(String str) {

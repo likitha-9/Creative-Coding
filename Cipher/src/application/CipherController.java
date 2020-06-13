@@ -38,6 +38,10 @@ public class CipherController implements Initializable {
 	public void getCipherMethod(ActionEvent event) {
 		if(combo.getValue()=="Atbash")
 			AllCipherMethods.atbash(area.getText());
+
+		if(combo.getValue()=="ROT13")
+			AllCipherMethods.rot13(area.getText());
+
 	}
 
 }

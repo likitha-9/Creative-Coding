@@ -126,8 +126,10 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
-	static public void affine(String str) {
-
+	/** */
+	static public void affine(String str, int a, int b) {
+		if (a < 1 || a > 26 || b < 1 || b > 26)
+			;//CipherController.writeMessage("This condition is violated: 1<= a,b <= 26.\nTry again!");
 	}
 
 	static public void railFence(String str) {

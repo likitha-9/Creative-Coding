@@ -44,7 +44,6 @@ public class CipherController implements Initializable {
 
 		a.setDisable(true);
 		b.setDisable(true);
-
 	}
 
 	@FXML
@@ -84,7 +83,18 @@ public class CipherController implements Initializable {
 				AllCipherMethods.caesar(area.getText());
 
 			if (combo.getValue() == "Affine") {
-				System.out.println(a.textProperty().get());
+				try {
+					AllCipherMethods.affine(area.getText(), Integer.parseInt(a.textProperty().get()),
+							Integer.parseInt(b.textProperty().get()));
+
+					// values of a, b must be apt (they should be integers and in range from 1-26)
+					int value_a = Integer.parseInt(a.textProperty().get()),
+							value_b = Integer.parseInt(b.textProperty().get());
+					if (value_a < 1 || value_a > 26 || value_b < 1 || value_b > 26)
+						throw new Exception();
+				} catch (Exception E) {
+					writeMessage("a and b must be valid integers!\nThis condition MUST be true: 1 <= a,b <= 26.");
+				}
 			}
 		});
 

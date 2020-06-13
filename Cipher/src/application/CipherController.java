@@ -73,15 +73,19 @@ public class CipherController implements Initializable {
 
 		// Check for actions on Submit.
 		submit.setOnMouseClicked(e -> {
+			/** ATBASH CIPHER */
 			if (combo.getValue() == "Atbash")
 				AllCipherMethods.atbash(area.getText());
 
+			/** ROT13 CIPHER */
 			if (combo.getValue() == "ROT13")
 				AllCipherMethods.rot13(area.getText());
 
+			/** CAESAR CIPHER */
 			if (combo.getValue() == "Caesar")
 				AllCipherMethods.caesar(area.getText());
 
+			/** AFFINE CIPHER */
 			if (combo.getValue() == "Affine") {
 				try {
 					// values of a, b must be apt (they should be integers and in range from 1-26)
@@ -90,12 +94,28 @@ public class CipherController implements Initializable {
 					if (value_a < 1 || value_a > 26 || value_b < 1 || value_b > 26)
 						throw new Exception();
 
-					// checking whether a and b are relatively prime to 26
+					// check if factors of a are divisible by 26.
+					for (int i = 2; i <= value_a; i++) {
+						if (value_a % i == 0)
+							if (26 % i == 0)
+								throw new Exception();
+					}
+
+					// check if factors of b are divisible by 26.
+					for (int i = 2; i <= value_b; i++) {
+						if (value_b % i == 0)
+							if (26 % i == 0)
+								throw new Exception();
+					}
+
+					// if all is well, invoke the function
 					AllCipherMethods.affine(area.getText(), Integer.parseInt(a.textProperty().get()),
 							Integer.parseInt(b.textProperty().get()));
 
 				} catch (Exception E) {
-					writeMessage("a and b must be valid integers!\nThis condition MUST be true: 1 <= a,b <= 26.");
+					writeMessage("a and b must be valid integers!\nThese conditions MUST be true: "
+							+ "(1) a, b MUST be relatively prime to 26, and "
+							+ "(2) they should be in the range of 1 <= a,b <= 26.");
 				}
 
 			}

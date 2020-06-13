@@ -1,5 +1,7 @@
 package application;
 
+import java.util.TreeMap;
+
 /**
  *
  * @author likitha-9
@@ -153,7 +155,7 @@ public class AllCipherMethods {
 				} else
 					p = str.charAt(i) - 65;
 
-				char coded_char = (char) (((a * p + b) % 26)+65);
+				char coded_char = (char) (((a * p + b) % 26) + 65);
 
 				// check flag and revert back to the original case
 				if (flag)
@@ -165,8 +167,76 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
-	static public void railFence(String str) {
+	/**
+	 * Rail-Fence Cipher - a transposition cipher that follows a simple rule for
+	 * mixing up the characters in the Plaintext to form the Ciphertext.
+	 *
+	 * The key for the railfence cipher is just the number of rails. To encrypt a
+	 * piece of text, e.g. "defend the east wall of the castle",
+	 *
+	 * d . . . n . . . e . . . t . . . l . . . h . . . s . . . <br>
+	 * . e . e . d . h . e . s . w . l . o . t . e . a . t . e <br>
+	 * . . f . . . t . . . a . . . a . . . f . . . c . . . l . <br>
+	 *
+	 * Ciphertext: dnetlhseedheswloteateftaafcl
+	 *
+	 * ***ONLY SPACES ARE IGNORED. DIGITS, SPECIAL CHARS, etc. WILL NOT BE
+	 * DISREGARDED FOR THIS ENCRYPTION.
+	 */
+	static public void railFence(String str, int key) {
+		String cipher = new String(""),cleanedCipher=new String("");
+		TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
+		int rails; // size of treeMap (# of keys)
 
+		if (key <= str.length()) // compare key & str's length; assign shorter one for # of rails
+			rails = key;
+		else
+			rails = str.length();
+
+		// initializing treeMap
+		for (int i = 0; i < rails; i++) {
+			treeMap.put(i, "");
+		}
+
+		int i = 0, position = 0;
+		boolean flag = true; // traverse down treeMap if true; else, traverse back up
+		while (i < str.length()) {
+
+			if (str.charAt(i) == ' ') {
+				i++;
+				continue;
+			}
+
+			if (position == 0)
+				flag = true;
+			if (position == rails - 1)
+				flag = false;
+
+			if (flag) {
+				treeMap.put(position, treeMap.get(position) + str.charAt(i));
+				position++;
+			} else {
+				treeMap.put(position, treeMap.get(position) + str.charAt(i));
+				position--;
+			}
+			i++;
+		}
+		// Displaying the TreeMap
+		//System.out.println("TreeMap: " + treeMap);
+
+		for(int j=0;j<rails;j++)
+		{
+			cipher+=treeMap.get(j);
+		}
+
+		//remove \n's and other messy chars
+		for(int j=0;j<cipher.length();j++)
+		{
+			if(Character.isLetter(cipher.charAt(j)))
+				cleanedCipher+=cipher.charAt(j);
+		}
+
+		System.out.println(cleanedCipher);
 	}
 
 	static public void baconian(String str) {

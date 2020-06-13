@@ -131,15 +131,27 @@ public class AllCipherMethods {
 	 * substitution cipher. The 'key' for the Affine cipher consists of 2 numbers:
 	 * a, b.
 	 *
-	 * a, b - MUST be relatively prime to m (# of alphabets - 26) p - number
+	 * a MUST be relatively prime to m (# of alphabets - 26)
+	 *
+	 *
+	 * p - number
 	 * representing letter
 	 *
 	 * Ciphertext letter c = ap+b (mod m)
 	 */
 	static public void affine(String str, int a, int b) {
-		if (a < 1 || a > 26 || b < 1 || b > 26)
-			;// CipherController.writeMessage("This condition is violated: 1<= a,b <=
-		// 26.\nTry again!");
+		StringBuilder cipher = new StringBuilder();
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isLetter(str.charAt(i))) {
+				cipher.append(str.charAt(i));
+				continue;
+			} else {
+				int p = str.charAt(i);
+				char coded_char=(char) ((a*p+b)%26);
+				cipher.append(coded_char);
+			}
+		}
+		System.out.println(cipher);
 	}
 
 	static public void railFence(String str) {

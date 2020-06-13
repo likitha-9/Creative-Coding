@@ -101,21 +101,14 @@ public class CipherController implements Initializable {
 								throw new Exception();
 					}
 
-					// check if factors of b are divisible by 26.
-					for (int i = 2; i <= value_b; i++) {
-						if (value_b % i == 0)
-							if (26 % i == 0)
-								throw new Exception();
-					}
-
 					// if all is well, invoke the function
 					AllCipherMethods.affine(area.getText(), Integer.parseInt(a.textProperty().get()),
 							Integer.parseInt(b.textProperty().get()));
 
 				} catch (Exception E) {
 					writeMessage("a and b must be valid integers!\nThese conditions MUST be true: "
-							+ "(1) a, b MUST be relatively prime to 26, and "
-							+ "(2) they should be in the range of 1 <= a,b <= 26.");
+							+ "(1) a MUST be relatively prime to 26, and "
+							+ "(2) a, b should be in the range of 1 <= a,b <= 26.");
 				}
 
 			}

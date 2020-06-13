@@ -133,22 +133,33 @@ public class AllCipherMethods {
 	 *
 	 * a MUST be relatively prime to m (# of alphabets - 26)
 	 *
-	 *
-	 * p - number
-	 * representing letter
+	 * p - number representing letter
 	 *
 	 * Ciphertext letter c = ap+b (mod m)
 	 */
 	static public void affine(String str, int a, int b) {
 		StringBuilder cipher = new StringBuilder();
 		for (int i = 0; i < str.length(); i++) {
-			if (Character.isLetter(str.charAt(i))) {
+			if (!Character.isLetter(str.charAt(i))) {
 				cipher.append(str.charAt(i));
 				continue;
 			} else {
-				int p = str.charAt(i);
-				char coded_char=(char) ((a*p+b)%26);
-				cipher.append(coded_char);
+				boolean flag = false; // to keep track whether letter is lower/uppercase
+				int p;
+
+				if (!Character.isUpperCase(str.charAt(i))) {
+					p = Character.toUpperCase(str.charAt(i)) - 65; // a->0, b->1, etc,
+					flag = true;
+				} else
+					p = str.charAt(i) - 65;
+
+				char coded_char = (char) (((a * p + b) % 26)+65);
+
+				// check flag and revert back to the original case
+				if (flag)
+					cipher.append(Character.toLowerCase(coded_char));
+				else
+					cipher.append(coded_char);
 			}
 		}
 		System.out.println(cipher);

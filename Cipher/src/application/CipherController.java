@@ -91,13 +91,13 @@ public class CipherController implements Initializable {
 					// values of a, b must be apt (they should be integers and in range from 1-26)
 					int value_a = Integer.parseInt(a.textProperty().get()),
 							value_b = Integer.parseInt(b.textProperty().get());
-					if (value_a < 1 || value_a > 26 || value_b < 1 || value_b > 26)
+					if (value_a < 0 || value_a > 25 || value_b < 0 || value_b > 25)
 						throw new Exception();
 
 					// check if factors of a are divisible by 26.
 					for (int i = 2; i <= value_a; i++) {
 						if (value_a % i == 0)
-							if (26 % i == 0)
+							if (25 % i == 0)
 								throw new Exception();
 					}
 
@@ -108,7 +108,7 @@ public class CipherController implements Initializable {
 				} catch (Exception E) {
 					writeMessage("a and b must be valid integers!\nThese conditions MUST be true: "
 							+ "(1) a MUST be relatively prime to 26, and "
-							+ "(2) a, b should be in the range of 1 <= a,b <= 26.");
+							+ "(2) a, b should be in the range of 0 <= a,b <= 25.");
 				}
 
 			}

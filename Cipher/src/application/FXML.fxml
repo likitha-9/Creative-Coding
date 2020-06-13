@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollBar?>
@@ -40,7 +39,6 @@
       					</font>
       				</Label>
                   <Separator orientation="VERTICAL" prefHeight="98.0" prefWidth="0.0" />
-                  <ChoiceBox fx:id="choiceBox" prefHeight="32.0" prefWidth="209.0" />
                   <ComboBox fx:id="combo" prefWidth="150.0" />
       					
       			</children>

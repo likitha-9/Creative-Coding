@@ -5,6 +5,8 @@ import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
@@ -24,11 +26,18 @@ public class CipherController implements Initializable {
 			"Homophonic Substitution", "Four-Square", "Hill", "Playfair", "ADFGVX", "ADFGX", "Bifid",
 			"Straddle Checkerboard", "Trifid", "Base64", "Fractionated Morse");
 	public ComboBox<String> combo;
-	public TextArea textArea;
+	public TextArea area;
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		combo.setItems(choices);
+		combo.setOnAction(this::getCipherMethod);
+	}
+
+	@FXML
+	public void getCipherMethod(ActionEvent event) {
+		if(combo.getValue()=="Atbash")
+			AllCipherMethods.atbash(area.getText());
 	}
 
 }

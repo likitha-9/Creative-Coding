@@ -33,7 +33,7 @@ public class AllCipherMethods {
 				}
 				// in case of uppercase
 				else {
-					int numeric = 91 - (64 - ascii);
+					int numeric = 91 + (64 - ascii);
 					coded_char = (char) numeric;
 				}
 

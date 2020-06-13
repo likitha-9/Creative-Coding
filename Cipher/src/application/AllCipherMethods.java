@@ -1,107 +1,153 @@
 package application;
 
+/**
+ *
+ * @author likitha-9
+ *
+ *         Raw implementations of all of the 31 cipher methods.
+ *
+ */
 public class AllCipherMethods {
-	public void atbash() {
+
+	/**
+	 * Atbash Cipher
+	 */
+	static public void atbash(String str) {
+		/*
+		 * A monoalphabetic substitution that takes the alphabet and maps to its
+		 * reverse.
+		 *
+		 * Ex: A->Z, B->Y, C->X, and so on.
+		 */
+		StringBuilder cipher = new StringBuilder();
+
+		for (int i = 0; i < str.length(); i++) {
+
+			// Atbash is applicable to only letter. All other chars are ignored.
+			if (Character.isLetter(str.charAt(i))) {
+				int ascii = str.charAt(i); // convert current char to ascii value
+
+				char coded_char;
+				// in case of lowercase
+				if (Character.isLowerCase(str.charAt(i))) {
+					int numeric = 123 + (96 - ascii);
+					coded_char = (char) numeric;
+				}
+				// in case of uppercase
+				else {
+					int numeric = 91 - (64 - ascii);
+					coded_char = (char) numeric;
+				}
+
+				cipher.append(coded_char);
+			}
+
+			//If str.charAt(i)!=alphabet, don't modify it.
+			else {
+				cipher.append(str.charAt(i));
+			}
+		}
+
+		System.out.println(cipher);
+	}
+
+	static public void rot13(String str) {
 
 	}
 
-	public void rot13() {
+	static public void caesar(String str) {
 
 	}
 
-	public void caesar() {
+	static public void affine(String str) {
 
 	}
 
-	public void affine() {
+	static public void railFence(String str) {
 
 	}
 
-	public void railFence() {
+	static public void baconian(String str) {
 
 	}
 
-	public void baconian() {
+	static public void polybiusSquare(String str) {
 
 	}
 
-	public void polybiusSquare() {
+	static public void simpleSubstitution(String str) {
 
 	}
 
-	public void simpleSubstitution() {
+	static public void codesAndNomenclators(String str) {
 
 	}
 
-	public void codesAndNomenclators(){
+	static public void columnarTransposition(String str) {
 
 	}
 
-	public void columnarTransposition() {
+	static public void autokey(String str) {
 
 	}
 
-	public void autokey() {
+	static public void beaufort(String str) {
 
 	}
 
-	public void beaufort() {
+	static public void porta(String str) {
 
 	}
 
-	public void porta() {
+	static public void runningKey(String str) {
 
 	}
 
-	public void runningKey() {
+	static public void vigenereAndGronsfeld(String str) {
 
 	}
 
-	public void vigenereAndGronsfeld() {
+	static public void homophonicSubstitution(String str) {
 
 	}
 
-	public void homophonicSubstitution() {
+	static public void fourSquare(String str) {
 
 	}
 
-	public void fourSquare() {
+	static public void hill(String str) {
 
 	}
 
-	public void hill() {
+	static public void playfair(String str) {
 
 	}
 
-	public void playfair() {
+	static public void adfgvx(String str) {
 
 	}
 
-	public void adfgvx() {
+	static public void adfgx(String str) {
 
 	}
 
-	public void adfgx() {
+	static public void bifid(String str) {
 
 	}
 
-	public void bifid() {
+	static public void straddleCheckerboard(String str) {
 
 	}
 
-	public void straddleCheckerboard() {
+	static public void trifid(String str) {
 
 	}
 
-	public void trifid() {
+	static public void base64(String str) {
 
 	}
 
-	public void base64() {
-
-	}
-
-	public void fractionatedMorse() {
+	static public void fractionatedMorse(String str) {
 
 	}
 }

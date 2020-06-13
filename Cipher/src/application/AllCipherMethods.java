@@ -10,21 +10,21 @@ package application;
 public class AllCipherMethods {
 
 	/**
-	 * Atbash Cipher
+	 * Atbash Cipher - a monoalphabetic substitution that takes the alphabet and
+	 * maps to its reverse. Ex: A->Z, B->Y, C->X, and so on.
 	 */
 	static public void atbash(String str) {
-		/*
-		 * A monoalphabetic substitution that takes the alphabet and maps to its
-		 * reverse.
-		 *
-		 * Ex: A->Z, B->Y, C->X, and so on.
-		 */
 		StringBuilder cipher = new StringBuilder();
 
 		for (int i = 0; i < str.length(); i++) {
 
 			// Atbash is applicable to only letter. All other chars are ignored.
-			if (Character.isLetter(str.charAt(i))) {
+			if (!Character.isLetter(str.charAt(i))) {
+				cipher.append(str.charAt(i));
+				continue;
+			}
+			// If str.charAt(i)==alphabet, modify it.*/
+			else {
 				int ascii = str.charAt(i); // convert current char to ascii value
 
 				char coded_char;
@@ -41,18 +41,20 @@ public class AllCipherMethods {
 
 				cipher.append(coded_char);
 			}
-
-			//If str.charAt(i)!=alphabet, don't modify it.
-			else {
-				cipher.append(str.charAt(i));
-			}
 		}
 
 		System.out.println(cipher);
 	}
 
+	/**
+	 * ROT13 Cipher - substitution cipher where letters are offset by 13. Ex: A->N,
+	 * B->O, etc.
+	 */
 	static public void rot13(String str) {
+		StringBuilder cipher = new StringBuilder();
+		for (int i = 0; i < str.length(); i++) {
 
+		}
 	}
 
 	static public void caesar(String str) {

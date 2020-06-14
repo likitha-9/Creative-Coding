@@ -82,6 +82,17 @@ public class CipherController implements Initializable {
 			writeMessage("Key = # of rails. " + "E.g. key=3. Plaintext=\"defense\"\n" + "d . . . n . .\n"
 					+ ". e . e . s .\n" + ". . f . . . e\n");
 		}
+
+		// Baconian Cipher
+		if (combo.getValue() == "Baconian") {
+			a.setDisable(false);
+			b.setDisable(false);
+
+			promptText("Enter first character", "Enter second character");
+			writeMessage("Each letter is assigned a string of 5 binary digits. "
+					+ "For e.g., letter A->'aaaaa', B->'aaaab', and so on. "
+					+ "EXCEPT for I/J and U/V; they have the same one.");
+		}
 	}
 
 	public void submitActions(ActionEvent event) {
@@ -132,12 +143,18 @@ public class CipherController implements Initializable {
 				try {
 					System.out.println();
 					AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.textProperty().get()));
-					//AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.textProperty().get()));
+					// AllCipherMethods.railFence(area.getText(),
+					// Integer.parseInt(a.textProperty().get()));
 
 				} catch (Exception E) {
 					System.out.println(E);
 					writeMessage("Key has to be a valid integer!");
 				}
+			}
+
+			// Baconian Cipher
+			if (combo.getValue() == "Baconian") {
+
 			}
 
 		});

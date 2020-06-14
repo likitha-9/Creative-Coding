@@ -141,8 +141,7 @@ public class CipherController implements Initializable {
 			// Rail-Fence Cipher
 			if (combo.getValue() == "Rail-Fence") {
 				try {
-					System.out.println();
-					AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.textProperty().get()));
+					AllCipherMethods.railFence(area.getText(), Integer.parseInt(a.getText()));
 					// AllCipherMethods.railFence(area.getText(),
 					// Integer.parseInt(a.textProperty().get()));
 
@@ -154,7 +153,7 @@ public class CipherController implements Initializable {
 
 			// Baconian Cipher
 			if (combo.getValue() == "Baconian") {
-
+				AllCipherMethods.baconian(area.getText(), a.getText(), b.getText());
 			}
 
 		});

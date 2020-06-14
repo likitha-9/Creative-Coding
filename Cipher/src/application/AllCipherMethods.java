@@ -1,5 +1,6 @@
 package application;
 
+import java.util.ArrayList;
 import java.util.TreeMap;
 
 /**
@@ -228,9 +229,9 @@ public class AllCipherMethods {
 			cipher += treeMap.get(j);
 		}
 
-		// remove \n's and other messy chars
+		// remove spaces & line breaks
 		for (int j = 0; j < cipher.length(); j++) {
-			if (cipher.charAt(j) != ' ' && cipher.charAt(j)!='\n')
+			if (cipher.charAt(j) != ' ' && cipher.charAt(j) != '\n')
 				cleanedCipher += cipher.charAt(j);
 		}
 
@@ -255,6 +256,23 @@ public class AllCipherMethods {
 	 *
 	 */
 	static public void baconian(String str, String char1, String char2) {
+		// Method will treat char1 as 0 && char2 as 1, disregarding # of chars in each
+
+		ArrayList<String> binary = new ArrayList<String>();
+
+		for(int i=0;i<26;i++)
+		{
+			String s=new String("");
+			int count=i;
+			for(int j=0;j<5;j++)
+			{
+				if(count>=Math.pow(2, j))
+				{
+
+				}
+			}
+		}
+
 		System.out.println(str + " " + char1 + " " + char2);
 
 	}

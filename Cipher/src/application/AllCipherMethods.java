@@ -184,7 +184,7 @@ public class AllCipherMethods {
 	 * DISREGARDED FOR THIS ENCRYPTION.
 	 */
 	static public void railFence(String str, int key) {
-		String cipher = new String(""),cleanedCipher=new String("");
+		String cipher = new String(""), cleanedCipher = new String("");
 		TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
 		int rails; // size of treeMap (# of keys)
 
@@ -222,23 +222,38 @@ public class AllCipherMethods {
 			i++;
 		}
 		// Displaying the TreeMap
-		//System.out.println("TreeMap: " + treeMap);
+		// System.out.println("TreeMap: " + treeMap);
 
-		for(int j=0;j<rails;j++)
-		{
-			cipher+=treeMap.get(j);
+		for (int j = 0; j < rails; j++) {
+			cipher += treeMap.get(j);
 		}
 
-		//remove \n's and other messy chars
-		for(int j=0;j<cipher.length();j++)
-		{
-			if(Character.isLetter(cipher.charAt(j)))
-				cleanedCipher+=cipher.charAt(j);
+		// remove \n's and other messy chars
+		for (int j = 0; j < cipher.length(); j++) {
+			if (cipher.charAt(j)!=' ')
+				cleanedCipher += cipher.charAt(j);
 		}
 
 		System.out.println(cleanedCipher);
 	}
 
+	/**
+	 * Baconian Cipher - each letter is assigned to a string of five binary digits.
+	 * These could be the letters 'A' and 'B', the numbers 0 and 1 or whatever else.
+	 * A = aaaaa I/J = abaaa R = baaaa <br>
+	 * B = aaaab K = abaab S = baaab <br>
+	 * C = aaaba L = ababa T = baaba <br>
+	 * D = aaabb M = ababb U/V = baabb <br>
+	 * E = aabaa N = abbaa W = babaa <br>
+	 * F = aabab O = abbab X = babab <br>
+	 * G = aabba P = abbba Y = babba <br>
+	 * H = aabbb Q = abbbb Z = babbb <br>
+	 *
+	 * To encipher a message, e.g. 'STRIKE NOW', each letter is replaced:<br>
+	 * S T R I K E N O W <br>
+	 * baaab baaba baaaa abaaa abaab aabaa abbaa abbab babaa
+	 *
+	 */
 	static public void baconian(String str) {
 
 	}

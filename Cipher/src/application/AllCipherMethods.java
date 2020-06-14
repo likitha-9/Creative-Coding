@@ -230,7 +230,7 @@ public class AllCipherMethods {
 
 		// remove \n's and other messy chars
 		for (int j = 0; j < cipher.length(); j++) {
-			if (cipher.charAt(j)!=' ')
+			if (cipher.charAt(j) != ' ' && cipher.charAt(j)!='\n')
 				cleanedCipher += cipher.charAt(j);
 		}
 
@@ -254,7 +254,8 @@ public class AllCipherMethods {
 	 * baaab baaba baaaa abaaa abaab aabaa abbaa abbab babaa
 	 *
 	 */
-	static public void baconian(String str) {
+	static public void baconian(String str, String char1, String char2) {
+		System.out.println(str + " " + char1 + " " + char2);
 
 	}
 

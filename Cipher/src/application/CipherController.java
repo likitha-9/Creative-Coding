@@ -182,6 +182,7 @@ public class CipherController implements Initializable {
 					writeMessage("Number of cipher characters should only be 5!");
 				}
 				AllCipherMethods.polybiusSquare(area.getText(),a.getText(),b.getText());
+				writeMessage("Any character that's in plaintext but not in key will be replaced by a random Unicode character.")
 			}
 		});
 

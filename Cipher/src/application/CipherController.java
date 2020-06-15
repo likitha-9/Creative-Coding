@@ -94,14 +94,14 @@ public class CipherController implements Initializable {
 					+ "EXCEPT for I/J and U/V; they have the same one.");
 		}
 
-		if(combo.getValue()=="Polybius Square") {
+		// Polybius Square Cipher
+		if (combo.getValue() == "Polybius Square") {
 			a.setDisable(false);
 			b.setDisable(false);
 
 			promptText("Enter key", "Enter ciphertext characters");
-			writeMessage("Usually a 25 letter 'key square' & 5 cipher characters.\n" +
-					"e.g. Key square: 'zebracdfghiklmnopqstuvwxy',\n"
-					+ "Cipher chars: 'abcde'");
+			writeMessage("Usually a 25 letter 'key square' & 5 cipher characters.\n"
+					+ "e.g. Key square: 'zebracdfghiklmnopqstuvwxy',\n" + "Cipher chars: 'abcde'");
 		}
 	}
 
@@ -166,6 +166,23 @@ public class CipherController implements Initializable {
 				AllCipherMethods.baconian(area.getText(), a.getText(), b.getText());
 			}
 
+			// Polybius Square Cipher
+			if (combo.getValue() == "Polybius Square") {
+				try {
+					if (a.getText().length()!=25)
+						throw new Exception();
+				} catch (Exception E) {
+					writeMessage("Key has to be only 25 characters long!");
+				}
+
+				try {
+					if (b.getText().length()!=5)
+						throw new Exception();
+				} catch (Exception E) {
+					writeMessage("Number of cipher characters should only be 5!");
+				}
+				AllCipherMethods.polybiusSquare(area.getText(),a.getText(),b.getText());
+			}
 		});
 
 	}

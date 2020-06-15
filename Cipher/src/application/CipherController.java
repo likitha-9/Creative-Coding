@@ -93,6 +93,16 @@ public class CipherController implements Initializable {
 					+ "For e.g., letter A->'aaaaa', B->'aaaab', and so on. "
 					+ "EXCEPT for I/J and U/V; they have the same one.");
 		}
+
+		if(combo.getValue()=="Polybius Square") {
+			a.setDisable(false);
+			b.setDisable(false);
+
+			promptText("Enter key", "Enter ciphertext characters");
+			writeMessage("Usually a 25 letter 'key square' & 5 cipher characters.\n" +
+					"e.g. Key square: 'zebracdfghiklmnopqstuvwxy',\n"
+					+ "Cipher chars: 'abcde'");
+		}
 	}
 
 	public void submitActions(ActionEvent event) {

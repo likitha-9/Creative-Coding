@@ -30,6 +30,8 @@ public class Main extends Application {
 		// Create scene, add it to stage, and show the stage.
 		Scene scene = new Scene(root);
 		scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+
+		mainStage.setResizable(false);
 		mainStage.setScene(scene);
 		mainStage.show();
 	}

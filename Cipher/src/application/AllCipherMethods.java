@@ -295,6 +295,19 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
+	/**
+	 * Polybius Square Cipher - keys usually consist of a 25 letter 'key square'.
+	 * e.g. (the letters along the top and side can be chosen arbitrarily): <br>
+	 * <t>A B C D E<br>
+	 * A| p h q g m<br>
+	 * B| e a y l n<br>
+	 * C| o f d x k<br>
+	 * D| r c v s z<br>
+	 * E| w b u t i<br>
+	 *
+	 * Plaintext: d e f e n d t h e e a s t w a l l o f t h e c a s t l e <br>
+	 * Ciphertext: CCBACBBABECC EDABBA BABBDDED EABBBDBD CACB EDABBA DBBBDDEDBDBA
+	 */
 	static public void polybiusSquare(String str) {
 
 	}

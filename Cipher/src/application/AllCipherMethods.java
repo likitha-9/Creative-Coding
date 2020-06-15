@@ -254,6 +254,8 @@ public class AllCipherMethods {
 	 * S T R I K E N O W <br>
 	 * baaab baaba baaaa abaaa abaab aabaa abbaa abbab babaa
 	 *
+	 * Note: Numbers, spaces, & special chars in plaintext are ignored. Only letters
+	 * are considered.
 	 */
 	static public void baconian(String str, String char1, String char2) {
 		// Method will treat char1 as 0 && char2 as 1, disregarding # of chars in each
@@ -272,10 +274,8 @@ public class AllCipherMethods {
 			}
 			binary.add(s);
 		}
-		binary.add(8, binary.get(8));	//add a duplicate for I/J
-		binary.add(19,binary.get(19));	//add a duplicate for U/V
-
-		System.out.println(binary);
+		binary.add(8, binary.get(8)); // add a duplicate for I/J
+		binary.add(19, binary.get(19)); // add a duplicate for U/V
 
 		// for plaintext, replace 0s with char1 & 1s with char2
 		StringBuilder cipher = new StringBuilder("");

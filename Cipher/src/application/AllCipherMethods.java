@@ -259,22 +259,40 @@ public class AllCipherMethods {
 		// Method will treat char1 as 0 && char2 as 1, disregarding # of chars in each
 
 		ArrayList<String> binary = new ArrayList<String>();
+		for (int i = 0; i < 24; i++) {
+			String s = new String("");
+			int count = i;
+			for (int j = 0; j < 5; j++) {
+				// decimal->binary conversation (via manual division & mod)
+				if (count % 2 == 0)
+					s = '0' + s;
+				else
+					s = '1' + s;
+				count /= 2;
+			}
+			binary.add(s);
+		}
+		binary.add(8, binary.get(8));	//add a duplicate for I/J
+		binary.add(19,binary.get(19));	//add a duplicate for U/V
 
-		for(int i=0;i<26;i++)
-		{
-			String s=new String("");
-			int count=i;
-			for(int j=0;j<5;j++)
-			{
-				if(count>=Math.pow(2, j))
-				{
+		System.out.println(binary);
 
+		// for plaintext, replace 0s with char1 & 1s with char2
+		StringBuilder cipher = new StringBuilder("");
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isLetter(str.charAt(i))) {
+				int ch = Character.toUpperCase(str.charAt(i)); // doesn't matter if letter is lower/uppercase
+				String coded_chars = new String("");
+				for (int j = 0; j < 5; j++) {
+					if (binary.get(ch - 65).charAt(j) == '0')
+						coded_chars += char1;
+					else
+						coded_chars += char2;
 				}
+				cipher.append(coded_chars);
 			}
 		}
-
-		System.out.println(str + " " + char1 + " " + char2);
-
+		System.out.println(cipher);
 	}
 
 	static public void polybiusSquare(String str) {

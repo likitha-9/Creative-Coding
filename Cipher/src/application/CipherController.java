@@ -70,7 +70,8 @@ public class CipherController implements Initializable {
 
 			promptText("Value of a", "Value of b");
 			writeMessage("The algorithm for Affine Cipher is: c=(ap+b)(mod 26). "
-					+ "p is the number representing a letter. Values of a and b MUST be relatively prime to 26.");
+					+ "p is the number representing a letter. Value of a MUST be relatively prime to 26. "
+					+ "Value of b can be up to 26.");
 		}
 
 		// Rail-Fence Cipher
@@ -169,20 +170,16 @@ public class CipherController implements Initializable {
 			// Polybius Square Cipher
 			if (combo.getValue() == "Polybius Square") {
 				try {
-					if (a.getText().length()!=25)
+					if (a.getText().length() != 0 || b.getText().length() != 5)
 						throw new Exception();
-				} catch (Exception E) {
-					writeMessage("Key has to be only 25 characters long!");
-				}
 
-				try {
-					if (b.getText().length()!=5)
-						throw new Exception();
+					AllCipherMethods.polybiusSquare(area.getText(), a.getText(), b.getText());
+					writeMessage(
+							"Any character that's in plaintext but not in key will be replaced by a random Unicode character.");
 				} catch (Exception E) {
-					writeMessage("Number of cipher characters should only be 5!");
+					writeMessage(
+							"Key has to be only 25 characters long and number of cipher characters should only be 5!");
 				}
-				AllCipherMethods.polybiusSquare(area.getText(),a.getText(),b.getText());
-				writeMessage("Any character that's in plaintext but not in key will be replaced by a random Unicode character.")
 			}
 		});
 

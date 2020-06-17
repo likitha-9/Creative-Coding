@@ -312,9 +312,38 @@ public class AllCipherMethods {
 	 * step in its encryption.
 	 */
 	static public void polybiusSquare(String str, String key, String cipherChars) {
+		/*
+		 * // add padding characters to key if (key.length() != 25) { ArrayList<Integer>
+		 * chars = new ArrayList<Integer>(); for (int i = 0; i < key.length(); i++)
+		 * chars.add((int) Character.toLowerCase(key.charAt(i))); for (int i = 65; i <
+		 * 91; i++) { if (chars.contains(i) || chars.contains(Character.toLowerCase(i))
+		 * && (i == 73 || i == 74)) // I/J are already present continue; if
+		 * (chars.contains(i)) continue; else key += (char) i; // add letters that are
+		 * not present } }
+		 */
+		System.out.println(key);
+		// build ciphertext
 		StringBuilder cipher = new StringBuilder("");
+		for (int i = 0; i < str.length(); i++) {
 
-		System.out.println("\u00a5");
+			if (Character.isLetter(str.charAt(i))) { // str.charAt(i) has to be a letter first; others are ignored
+				boolean flag = false;
+				char ch = Character.toUpperCase(str.charAt(i));
+				for (int j = 0; j < 25; j++) {
+					if (Character.toUpperCase(key.charAt(j)) == ch) {
+						int row = j / 5, column = j % 5;
+						cipher.append(cipherChars.charAt(row));
+						cipher.append(cipherChars.charAt(column));
+						flag = true;
+						break;
+					}
+				}
+				if (!flag) // letter was not found in key
+					cipher.append("\u00a5\u00a5");
+			} else
+				cipher.append(str.charAt(i)); // optional (you can leave out spaces/numbers/etc. or append them as is)
+		}
+		System.out.println(cipher);
 	}
 
 	static public void simpleSubstitution(String str) {

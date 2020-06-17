@@ -170,15 +170,15 @@ public class CipherController implements Initializable {
 			// Polybius Square Cipher
 			if (combo.getValue() == "Polybius Square") {
 				try {
-					if (a.getText().length() != 0 || b.getText().length() != 5)
+					if (a.getText().length() <= 25 || b.getText().length() != 5)
 						throw new Exception();
 
 					AllCipherMethods.polybiusSquare(area.getText(), a.getText(), b.getText());
 					writeMessage(
 							"Any character that's in plaintext but not in key will be replaced by a random Unicode character.");
 				} catch (Exception E) {
-					writeMessage(
-							"Key has to be only 25 characters long and number of cipher characters should only be 5!");
+					writeMessage("Key has to be 25 characters long and number of cipher characters should only be 5! "
+							+ "Padding/random characters will be added to a key that's <25 characters long.");
 				}
 			}
 		});

@@ -296,7 +296,7 @@ public class AllCipherMethods {
 	}
 
 	/**
-	 * Polybius Square Cipher - keys usually consist of a 25 letter 'key square'.
+	 * Polybius Square Cipher - keys usually consist of a 25-letter 'key square'.
 	 * e.g. (the letters along the top and side can be chosen arbitrarily): <br>
 	 * <t>A B C D E<br>
 	 * A| p h q g m<br>
@@ -307,9 +307,14 @@ public class AllCipherMethods {
 	 *
 	 * Plaintext: d e f e n d t h e e a s t w a l l o f t h e c a s t l e <br>
 	 * Ciphertext: CCBACBBABECC EDABBA BABBDDED EABBBDBD CACB EDABBA DBBBDDEDBDBA
+	 *
+	 * Note: ADFGVX cipher uses a 6x6 version of the polybius square as the first
+	 * step in its encryption.
 	 */
-	static public void polybiusSquare(String str) {
+	static public void polybiusSquare(String str, String key, String cipherChars) {
+		StringBuilder cipher = new StringBuilder("");
 
+		System.out.println("\u00a5");
 	}
 
 	static public void simpleSubstitution(String str) {
@@ -387,4 +392,5 @@ public class AllCipherMethods {
 	static public void fractionatedMorse(String str) {
 
 	}
+
 }

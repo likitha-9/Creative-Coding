@@ -1,6 +1,6 @@
 Implementing the following types of Ciphers:
 
-Atbash Cipher - A's are replaced with 'Z's, all 'B's are replaced with 'Y's, and so on. 
+Atbash Cipher  
 ROT13 Cipher
 Caesar Cipher
 Affine Cipher

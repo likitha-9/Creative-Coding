@@ -24,10 +24,10 @@ import javafx.scene.control.TextField;
 public class CipherController implements Initializable {
 
 	ObservableList<String> choices = FXCollections.observableArrayList("Atbash", "ROT13", "Caesar", "Affine",
-			"Rail-Fence", "Baconian", "Polybius Square", "Simple Substitution", "Codes and Nomenclators",
-			"Columnar Transposition", "Autokey", "Beaufort", "Porta", "Running Key", "Vigenère and Gronsfeld",
-			"Homophonic Substitution", "Four-Square", "Hill", "Playfair", "ADFGVX", "ADFGX", "Bifid",
-			"Straddle Checkerboard", "Trifid", "Base64", "Fractionated Morse");
+			"Rail-Fence", "Baconian", "Polybius Square", "Simple Substitution", "Columnar Transposition", "Autokey",
+			"Beaufort", "Porta", "Running Key", "Vigenère and Gronsfeld", "Homophonic Substitution", "Four-Square",
+			"Hill", "Playfair", "ADFGVX", "ADFGX", "Bifid", "Straddle Checkerboard", "Trifid", "Base64",
+			"Fractionated Morse");
 	public ComboBox<String> combo;
 	public TextArea area;
 	public TextField a;

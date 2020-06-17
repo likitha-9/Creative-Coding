@@ -385,10 +385,6 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
-	static public void codesAndNomenclators(String str) {
-
-	}
-
 	static public void columnarTransposition(String str) {
 
 	}

@@ -331,7 +331,6 @@ public class AllCipherMethods {
 			}
 		}
 
-		System.out.println(key);
 		// build ciphertext
 		StringBuilder cipher = new StringBuilder("");
 		for (int i = 0; i < str.length(); i++) {

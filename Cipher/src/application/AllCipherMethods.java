@@ -312,15 +312,25 @@ public class AllCipherMethods {
 	 * step in its encryption.
 	 */
 	static public void polybiusSquare(String str, String key, String cipherChars) {
-		/*
-		 * // add padding characters to key if (key.length() != 25) { ArrayList<Integer>
-		 * chars = new ArrayList<Integer>(); for (int i = 0; i < key.length(); i++)
-		 * chars.add((int) Character.toLowerCase(key.charAt(i))); for (int i = 65; i <
-		 * 91; i++) { if (chars.contains(i) || chars.contains(Character.toLowerCase(i))
-		 * && (i == 73 || i == 74)) // I/J are already present continue; if
-		 * (chars.contains(i)) continue; else key += (char) i; // add letters that are
-		 * not present } }
-		 */
+
+		// add padding characters to key
+		if (key.length() != 25) {
+			ArrayList<Integer> chars = new ArrayList<Integer>();
+			for (int i = 0; i < key.length(); i++)
+				chars.add((int) Character.toLowerCase(key.charAt(i)));
+			for (int i = 97; i < 123; i++) {
+				if ((chars.contains(105) && (i == 106)) /* I is present */
+						|| (chars.contains(106) && (i == 105))) /* J is present */
+					continue;
+				if (chars.contains(i))
+					continue;
+				else {
+					chars.add(i);
+					key += Character.toLowerCase((char) i); // add letters that are not present
+				}
+			}
+		}
+
 		System.out.println(key);
 		// build ciphertext
 		StringBuilder cipher = new StringBuilder("");

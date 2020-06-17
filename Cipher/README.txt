@@ -8,7 +8,6 @@ Rail-fence Cipher
 Baconian Cipher
 Polybius Square Cipher
 Simple Substitution Cipher
-Codes and Nomenclators Cipher
 Columnar Transposition Cipher
 Autokey Cipher
 Beaufort Cipher

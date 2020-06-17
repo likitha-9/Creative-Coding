@@ -7,7 +7,7 @@ import java.util.TreeMap;
  *
  * @author likitha-9
  *
- *         Raw implementations of all of the 31 cipher methods.
+ *         Raw implementations of all of the cipher methods.
  *
  */
 public class AllCipherMethods {

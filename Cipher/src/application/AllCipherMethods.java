@@ -310,6 +310,9 @@ public class AllCipherMethods {
 	 *
 	 * Note: ADFGVX cipher uses a 6x6 version of the polybius square as the first
 	 * step in its encryption.
+	 *
+	 * Note(2): Spaces, digits, special characters, anything else that's not a
+	 * letter is ignored.
 	 */
 	static public void polybiusSquare(String str, String key, String cipherChars) {
 

@@ -358,6 +358,18 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
+	/**
+	 * Simple Substitution Cipher - keys usually consist of 26 letters. Each
+	 * character in the Plaintext is replaced with the corresponding letter in the
+	 * cipher alphabet. Very little security & super easy to break
+	 *
+	 * Ex:
+	 * plain alphabet : abcdefghijklmnopqrstuvwxyz <br>
+	 * cipher alphabet: phqgiumeaylnofdxjkrcvstzwb
+	 *
+	 * plaintext : defend the east wall of the castle <br>
+	 * ciphertext: giuifg cei iprc tpnn du cei qprcni
+	 */
 	static public void simpleSubstitution(String str) {
 
 	}

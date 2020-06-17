@@ -363,15 +363,26 @@ public class AllCipherMethods {
 	 * character in the Plaintext is replaced with the corresponding letter in the
 	 * cipher alphabet. Very little security & super easy to break
 	 *
-	 * Ex:
-	 * plain alphabet : abcdefghijklmnopqrstuvwxyz <br>
+	 * Ex: plain alphabet : abcdefghijklmnopqrstuvwxyz <br>
 	 * cipher alphabet: phqgiumeaylnofdxjkrcvstzwb
 	 *
 	 * plaintext : defend the east wall of the castle <br>
 	 * ciphertext: giuifg cei iprc tpnn du cei qprcni
 	 */
-	static public void simpleSubstitution(String str) {
-
+	static public void simpleSubstitution(String str, String key) {
+		StringBuilder cipher=new StringBuilder();
+		for(int i=0;i<str.length();i++)
+		{
+			if(Character.isLetter(str.charAt(i))) //only letters are encrypted
+			{
+				char ch=Character.toUpperCase(str.charAt(i));
+				int index=ch;
+				cipher.append(key.charAt(index-65));
+			}
+			else
+				cipher.append(str.charAt(i));
+		}
+		System.out.println(cipher);
 	}
 
 	static public void codesAndNomenclators(String str) {

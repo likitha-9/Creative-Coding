@@ -104,6 +104,16 @@ public class CipherController implements Initializable {
 			writeMessage("Usually a 25 letter 'key square' & 5 cipher characters.\n"
 					+ "e.g. Key square: 'zebracdfghiklmnopqstuvwxy',\n" + "Cipher chars: 'abcde'");
 		}
+
+		// Simple Substition Cipher
+		if (combo.getValue() == "Simple Substitution") {
+			a.setDisable(false);
+			b.setDisable(true);
+
+			promptText("Enter key", "");
+			writeMessage("Keys usually consist of 26 letters. "
+					+ "Each character in the plaintext is replaced with the corresponding letter in the cipher alphabet. ");
+		}
 	}
 
 	public void submitActions(ActionEvent event) {
@@ -177,9 +187,20 @@ public class CipherController implements Initializable {
 					} else
 						throw new Exception();
 				} catch (Exception E) {
-					System.out.println(a.getText().length() + " " + b.getText().length());
 					writeMessage("Key has to be 25 characters long and number of cipher characters should only be 5! "
 							+ "Padding/random characters will be added to a key that's <25 characters long.");
+				}
+			}
+
+			if (combo.getValue() == "Simple Substitution") {
+				try {
+					if (a.getText().length() == 26)
+						AllCipherMethods.simpleSubstitution(area.getText(), a.getText());
+					else
+						throw new Exception();
+				} catch (Exception E) {
+					writeMessage(
+							"Key should contain 26 characters! Be careful not to use repeated characters for different letters!");
 				}
 			}
 		});

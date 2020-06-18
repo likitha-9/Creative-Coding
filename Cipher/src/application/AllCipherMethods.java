@@ -370,23 +370,27 @@ public class AllCipherMethods {
 	 * ciphertext: giuifg cei iprc tpnn du cei qprcni
 	 */
 	static public void simpleSubstitution(String str, String key) {
-		StringBuilder cipher=new StringBuilder();
-		for(int i=0;i<str.length();i++)
-		{
-			if(Character.isLetter(str.charAt(i))) //only letters are encrypted
+		StringBuilder cipher = new StringBuilder();
+		for (int i = 0; i < str.length(); i++) {
+			if (Character.isLetter(str.charAt(i))) // only letters are encrypted
 			{
-				char ch=Character.toUpperCase(str.charAt(i));
-				int index=ch;
-				cipher.append(key.charAt(index-65));
-			}
-			else
+				char ch = Character.toUpperCase(str.charAt(i));
+				int index = ch;
+				cipher.append(key.charAt(index - 65));
+			} else
 				cipher.append(str.charAt(i));
 		}
 		System.out.println(cipher);
 	}
 
-	static public void columnarTransposition(String str) {
+	static public void columnarTransposition(String str, String key, String paddingChar) {
+		String modifiedStr =new String(str);
+		//adding padding characters to str first
+		if (str.length() % key.length() == 0)
+			;
+		else {
 
+		}
 	}
 
 	static public void autokey(String str) {

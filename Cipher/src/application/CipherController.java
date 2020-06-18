@@ -114,6 +114,16 @@ public class CipherController implements Initializable {
 			writeMessage("Keys usually consist of 26 letters. "
 					+ "Each character in the plaintext is replaced with the corresponding letter in the cipher alphabet. ");
 		}
+
+		// Columnar Transposition Cipher
+		if (combo.getValue() == "Columnar Transposition") {
+			a.setDisable(false);
+			b.setDisable(false);
+
+			promptText("Enter keyword", "Enter pad character");
+			writeMessage(
+					"The key for this cipher is a keyword. The Plaintext will be padded so that it neatly fits in a rectangle.");
+		}
 	}
 
 	public void submitActions(ActionEvent event) {
@@ -192,6 +202,7 @@ public class CipherController implements Initializable {
 				}
 			}
 
+			// Simple Substitution Cipher
 			if (combo.getValue() == "Simple Substitution") {
 				try {
 					if (a.getText().length() == 26)
@@ -203,12 +214,23 @@ public class CipherController implements Initializable {
 							"Key should contain 26 characters! Be careful not to use repeated characters for different letters!");
 				}
 			}
+
+			// Columnar Transposition Cipher
+			if (combo.getValue() == "Columnar Transposition") {
+				try {
+					if(a.getText().length()==0 || b.getText().length()==0)
+						throw new Exception();
+					AllCipherMethods.columnarTransposition(area.getText(),a.getText(),b.getText());
+				} catch (Exception E) {
+					writeMessage("Keyword/padding characters can't be empty!");
+				}
+			}
 		});
 
 	}
 
 	public void writeMessage(String str) {
-		message.setText(str); // edit the Label to show appropriate messages
+		message.setText(str); // edit the Label to show appropriate messages w.r.t to selected cipher
 	}
 
 	public void promptText(String str_a, String str_b) {

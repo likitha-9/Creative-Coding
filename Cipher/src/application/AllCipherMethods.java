@@ -383,17 +383,44 @@ public class AllCipherMethods {
 		System.out.println(cipher);
 	}
 
+	/**
+	 * Columnar Transposition Cipher - a transposition cipher that follows a simple
+	 * rule for mixing up the characters in the Plaintext to form the Ciphertext.
+	 *
+	 * Ex: Keyword: GERMAN (row length that is used is the same as the length of the
+	 * keyword), Padding character: x<br>
+	 * Plaintext: defend the east wall of the castle <br>
+	 *
+	 * G E R M A N <br>
+	 * ----------- <br>
+	 * d e f e n d <br>
+	 * t h e e a s <br>
+	 * t w a l l o <br>
+	 * f t h e c a <br>
+	 * s t l e x x <br>
+	 *
+	 * This becomes:
+	 *
+	 * A E G M N R <br>
+	 * -----------<br>
+	 * n e d e d f<br>
+	 * a h t e s e<br>
+	 * l w t l o a<br>
+	 * c t f e a h<br>
+	 * x t s e x l<br>
+	 *
+	 *
+	 * Ciphertext: nalcxehwttdttfseeleedsoaxfeahl
+	 */
 	static public void columnarTransposition(String str, String key, String paddingChar) {
-		String modifiedStr =new String(str);
-		//adding padding characters to str first
-		if (str.length() % key.length() == 0)
-		{
-			int x=str.length()/key.length();
-			int numOfPaddingCharsToAdd = (x+1)*key.length()-str.length();
-			for(int i=0;i<numOfPaddingCharsToAdd;i++)
-				str+=paddingChar;
-		}
-		else {
+		String modifiedStr = new String(str);
+		// adding padding characters to str first
+		if (str.length() % key.length() == 0) {
+			int x = str.length() / key.length();
+			int numOfPaddingCharsToAdd = (x + 1) * key.length() - str.length();
+			for (int i = 0; i < numOfPaddingCharsToAdd; i++)
+				str += paddingChar;
+		} else {
 
 		}
 	}

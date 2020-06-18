@@ -427,7 +427,7 @@ public class AllCipherMethods {
 		}
 		System.out.println(modifiedStr);
 		StringBuilder cipher=new StringBuilder();
-		String[][] matrix=new String[key.length()][str.length()/key.length()];
+		String[][] matrix=new String[key.length()][modifiedStr.length()/key.length()];
 
 		for(int i=0;i<matrix.length;i++)
 		{

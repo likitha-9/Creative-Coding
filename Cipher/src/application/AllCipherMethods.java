@@ -413,15 +413,25 @@ public class AllCipherMethods {
 	 * Ciphertext: nalcxehwttdttfseeleedsoaxfeahl
 	 */
 	static public void columnarTransposition(String str, String key, String paddingChar) {
-		String modifiedStr = new String(str);
+		String modifiedStr=new String(); //remove spacing/line break chars
+		for(int i=0;i<str.length();i++)
+			if(Character.isLetter(str.charAt(i)))
+				modifiedStr+=str.charAt(i);
 		// adding padding characters to str first
-		if (str.length() % key.length() == 0) {
-			int x = str.length() / key.length();
-			int numOfPaddingCharsToAdd = (x + 1) * key.length() - str.length();
-			for (int i = 0; i < numOfPaddingCharsToAdd; i++)
-				str += paddingChar;
-		} else {
 
+		if (modifiedStr.length() % key.length() != 0) {
+			int x = modifiedStr.length() / key.length();
+			int numOfPaddingCharsToAdd = (x + 1) * key.length() - modifiedStr.length();
+			for (int i = 0; i < numOfPaddingCharsToAdd; i++)
+				modifiedStr += paddingChar;
+		}
+		System.out.println(modifiedStr);
+		StringBuilder cipher=new StringBuilder();
+		String[][] matrix=new String[key.length()][str.length()/key.length()];
+
+		for(int i=0;i<matrix.length;i++)
+		{
+			//for()
 		}
 	}
 

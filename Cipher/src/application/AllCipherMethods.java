@@ -387,7 +387,12 @@ public class AllCipherMethods {
 		String modifiedStr =new String(str);
 		//adding padding characters to str first
 		if (str.length() % key.length() == 0)
-			;
+		{
+			int x=str.length()/key.length();
+			int numOfPaddingCharsToAdd = (x+1)*key.length()-str.length();
+			for(int i=0;i<numOfPaddingCharsToAdd;i++)
+				str+=paddingChar;
+		}
 		else {
 
 		}

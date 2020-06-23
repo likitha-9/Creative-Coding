@@ -204,6 +204,7 @@ public class AllCipherMethods {
 		while (i < str.length()) {
 
 			if (str.charAt(i) == ' ') {
+
 				i++;
 				continue;
 			}
